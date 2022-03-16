@@ -8,6 +8,9 @@ public class Implikation {
         System.out.println("--------------------");
         for (boolean p : value)
             for(boolean q : value)
-                System.out.println(p+"\t"+q+"\t"+(Boolean.valueOf(p).compareTo(q) < 1));
+                System.out.println(p + "\t" + q + "\t" + impl(p, q));
+    }
+    static boolean impl( boolean p, boolean q){
+        return (Boolean.valueOf(p).compareTo(q) < 1);
     }
 }
