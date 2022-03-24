@@ -1,25 +1,20 @@
 public class LawOfLogicA {
     public static void main(String[] args) {
         boolean[] values =  {false, true};
-        boolean[] results = {false, false, false, false};
-        boolean[] results1 = {false, false, false, false};
-        int count = 0;
+
         System.out.println("Prawo przechodności implikacji");
-        System.out.println("[(p => q)^(q => r)] => (p => r)");
-        for( boolean p : values)
-            for( boolean q : values){
-                results[count] = impl(p,q);
-                count += 1;
-            }
-        count = 0;
-        for( boolean q : values)
-            for( boolean r : values){
-                results1[count] = impl(q,r);
-                count += 1;
-            }
-        for(boolean r1 : results)
-            for(boolean r2 : results1)
-                System.out.println(r1 + "\t" + r2 + "\t" + impl(r1,r2));
+        System.out.println("p\t\tq\t\tr\t\t|\t(p => q)\t(q => r)\t|" +
+                "\t(p => q)^(q => r)\t|\t => (p => r)");
+        System.out.println("--------------------------------------" +
+                "---------------------------------------------------");
+        for (boolean p : values)
+            for(boolean q : values)
+                for (boolean r : values){
+                    System.out.print(p+"\t"+q+"\t"+r+"\t|\t");
+                    System.out.print(impl(p,q)+"\t\t"+impl(q,r)+"\t\t|\t\t");
+                    System.out.print((impl(p,q)&impl(q,r))+"\t\t\t|");
+                    System.out.println();
+                }
     }
 
     static boolean impl(boolean p, boolean q){
