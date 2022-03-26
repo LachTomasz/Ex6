@@ -7,14 +7,18 @@ public class LawOfLogicE {
         System.out.println();
         System.out.println("Prawo eliminacji implikacji");
         System.out.println();
-        System.out.println("--------------------------------" +
-                "--------------------------------------");
-        System.out.println("p\t\tq\t\t|\t(p=>q)\t\t!p\t\t(!p|q)\t\t(p=>q)<=>(!p|q)");
+        System.out.println("------------------------" +
+                "-----------------------------------");
+        System.out.println("p\t\tq\t\t|\t(p=>q)\t!p\t\t(!p|q)\t(p=>q)<=>(!p|q)");
+        System.out.println("------------------------" +
+                "-----------------------------------");
         for(boolean p : values)
             for(boolean q : values){
                 System.out.print(p + "\t" + q + "\t|\t");
-                System.out.println(impl(p,q));
-                System.out.println();
+                System.out.print(impl(p,q) + "\t");
+                System.out.print(!p + "\t");
+                System.out.print((!p|q) + "\t\t");
+                System.out.println(impl(p,q)==(!p|q));
             }
     }
 
