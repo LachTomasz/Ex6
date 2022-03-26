@@ -12,13 +12,20 @@ public class LawOfLogicC {
         System.out.println("------------------------------------" +
                 "-----------------------------------------------" +
                 "-----------------------------------------------");
-        System.out.println("p\t\tq\t\tr\t\t|\t");
+
+        System.out.println("p\t\tq\t\tr\t\t|\t(p|r)\t[p&(q|r)]\t(p&q)\t(p7r)\t[(p&q)|(p&r)]");
+        System.out.println("------------------------------------" +
+                "-----------------------------------------------" +
+                "-----------------------------------------------");
         for(boolean p : values)
             for(boolean q : values)
                 for (boolean r : values){
                     System.out.print(p + "\t" + q + "\t" + r + "\t|\t");
                     System.out.print((p & q) + "\t");
-                    System.out.print(((p&q)|r) + "\t");
+                    System.out.print(((p&q)|r) + "\t\t");
+                    System.out.print((p&q) + "\t");
+                    System.out.print((p&r) + "\t");
+                    System.out.print(((p&q)|(p&r)) + "\t");
                     System.out.println();
                 }
     }
